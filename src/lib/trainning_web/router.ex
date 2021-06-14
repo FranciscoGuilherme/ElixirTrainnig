@@ -19,6 +19,12 @@ defmodule TrainningWeb.Router do
     get "/", PageController, :index
   end
 
+  scope "/api", TrainningWeb do
+    pipe_through :api
+
+    resources "/projects",  ProjectController, only: [:index, :show]
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", TrainningWeb do
   #   pipe_through :api
