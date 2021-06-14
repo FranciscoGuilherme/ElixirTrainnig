@@ -7,98 +7,71 @@ defmodule Trainning.Management do
   alias Trainning.Repo
 
   alias Trainning.Management.Project
+  alias Trainning.Management.Document
 
-  @doc """
-  Returns the list of projetcs.
-
-  ## Examples
-
-      iex> list_projetcs()
-      [%Project{}, ...]
-
-  """
+  @doc false
   def list_projetcs do
     Repo.all(Project)
   end
 
-  @doc """
-  Gets a single project.
-
-  Raises `Ecto.NoResultsError` if the Project does not exist.
-
-  ## Examples
-
-      iex> get_project!(123)
-      %Project{}
-
-      iex> get_project!(456)
-      ** (Ecto.NoResultsError)
-
-  """
+  @doc false
   def get_project!(id), do: Repo.get!(Project, id)
 
-  @doc """
-  Creates a project.
-
-  ## Examples
-
-      iex> create_project(%{field: value})
-      {:ok, %Project{}}
-
-      iex> create_project(%{field: bad_value})
-      {:error, %Ecto.Changeset{}}
-
-  """
+  @doc false
   def create_project(attrs \\ %{}) do
     %Project{}
     |> Project.changeset(attrs)
     |> Repo.insert()
   end
 
-  @doc """
-  Updates a project.
-
-  ## Examples
-
-      iex> update_project(project, %{field: new_value})
-      {:ok, %Project{}}
-
-      iex> update_project(project, %{field: bad_value})
-      {:error, %Ecto.Changeset{}}
-
-  """
+  @doc false
   def update_project(%Project{} = project, attrs) do
     project
     |> Project.changeset(attrs)
     |> Repo.update()
   end
 
-  @doc """
-  Deletes a project.
-
-  ## Examples
-
-      iex> delete_project(project)
-      {:ok, %Project{}}
-
-      iex> delete_project(project)
-      {:error, %Ecto.Changeset{}}
-
-  """
+  @doc false
   def delete_project(%Project{} = project) do
     Repo.delete(project)
   end
 
-  @doc """
-  Returns an `%Ecto.Changeset{}` for tracking project changes.
-
-  ## Examples
-
-      iex> change_project(project)
-      %Ecto.Changeset{data: %Project{}}
-
-  """
+  @doc false
   def change_project(%Project{} = project, attrs \\ %{}) do
     Project.changeset(project, attrs)
+  end
+
+  alias Trainning.Management.Document
+
+  @doc false
+  def list_documents do
+    Repo.all(Document)
+  end
+
+  @doc false
+  def get_document!(id), do: Repo.get!(Document, id)
+
+  @doc false
+  def create_document(attrs \\ %{}) do
+    %Document{}
+    |> Document.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc false
+  def update_document(%Document{} = document, attrs) do
+    document
+    |> Document.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc false
+  def delete_document(%Document{} = document) do
+    Repo.delete(document)
+  end
+
+  @doc false
+  def change_document(%Document{} = document, attrs \\ %{}) do
+    Document.changeset(document, attrs)
   end
 end

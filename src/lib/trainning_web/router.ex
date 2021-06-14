@@ -23,6 +23,7 @@ defmodule TrainningWeb.Router do
     pipe_through :api
 
     resources "/projects",  ProjectController, only: [:index, :show]
+    resources "/documents", DocumentController, only: [:index, :show]
   end
 
   # Other scopes may use custom stacks.
